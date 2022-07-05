@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import React from 'react';
+import { Password } from './components/shared/textfields/password';
+import { Email } from './components/shared/textfields/email';
+import { CustomButton } from './components/shared/buttons/button';
+import { CustomSwitch } from './components/shared/buttons/switch';
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return (<div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+Components
+
+   <div style={{display:'flex',margin:10,justifyContent:'center',alignItems:'center',width:500,flexWrap:'wrap'}}>
+    
+    <Email/>
+    <Password/>
+    <CustomButton/>
+    <CustomSwitch/>
+ 
+   
+       
+    
+   </div>
+  </div>
+ 
   );
 }
 

@@ -1,3 +1,18 @@
+
+
+@font-face {
+  font-family: "Feather-Icons";
+  src: local("Feather-Icons"),
+    url("./fonts/Feather-Icons.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "Iconly-Icon";
+  src: local("Iconly-Bold"),
+    url("./fonts/Iconly-Bold.ttf") format("truetype");
+  font-weight: normal;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
