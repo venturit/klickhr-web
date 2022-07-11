@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { Password } from "./components/shared/textfields/password";
 import { Email } from "./components/shared/textfields/email";
-import { CustomButton } from "./components/shared/buttons/button";
+
 import { CustomSwitch } from "./components/shared/buttons/switch";
 import CardInformation from "./components/shared/cards/CardInformation";
 import ButtonOutlined from "./components/shared/buttons/ButtonOutlined";
@@ -13,16 +13,19 @@ import InputSearch from "./components/shared/textfields/searcherCategories/Searc
 import Input from "./components/shared/textfields/Input";
 import AutocompleteInput from "./components/shared/textfields/Autocomplete";
 import DataTable from "./components/shared/tables/dataTable/DataTable";
+import Date from "./components/shared/textfields/date";
+import {
+  CustomButton,
+  DeleteRoundedButton,
+  EditRoundedButton,
+  HideRoundedButton,
+} from "./components/shared/buttons/button";
+
 
 function App() {
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        backgroundColor: "aliceblue",
-      }}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
     >
       Components
       <div
@@ -60,8 +63,21 @@ function App() {
           labels={["One", "Two", "Three", "Four", "Five", "Six"]}
           values={[96, 7, 28, 30, 45, 15]}
         />
+        </div>
+        
+        <div style={{
+          display:"flex",
+          gap:"1em",
+          marginTop:"3em"
+        }} >
+          <EditRoundedButton/>
+          <DeleteRoundedButton/>
+          <HideRoundedButton/>
+          <Date/>
+        </div>
+
       </div>
-    </div>
+  
   );
 }
 
