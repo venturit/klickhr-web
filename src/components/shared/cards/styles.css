@@ -1,0 +1,88 @@
+.announcement__container{
+    min-height: 75px;
+    padding: 0 18px 0 32px;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+.announcement__container.show{
+    border: 3px solid #E6E5F8;
+    box-shadow: 0 8px 10px 0 rgba(52,51,101,0.15);
+}
+
+.announcements__content{
+    width: 100%;
+    margin-left: 31px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.announcements__position__content{
+    background-color: #B7B5E7;
+    width: 38.26px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.14px;
+    line-height: 22px;
+}
+
+.announcements__title {
+    color: #343365;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.14px;
+    line-height: 22px;
+}
+
+.announcements__body{
+    margin-bottom: 30px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0,1,0,1);
+}
+
+.announcements__body.show{
+    height: auto;
+    max-height: 100vh;
+    transition: all 0.3s cubic-bezier(1,0,1,0);
+}
+
+.announcements__body p {
+    color: #8280B1;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 22px;
+  
+}
+
+.announcements__footer{
+    display: flex;
+    align-items: center;
+}
+
+.drag__indicator{
+    margin-top: 29px;
+}
+
+.announcements__content{
+    margin-top: 29px;
+}
+
+.announcements__position{
+    margin-top: 18px;
+}

@@ -77,3 +77,25 @@ export function DeleteRoundedButton(props) {
      </div>
    );
  }
+
+ export function DashedButton({text='+ Create an announcement'}){
+  return (
+    <div style={{
+      boxSizing:"border-box",
+      display:"flex",
+      justifyContent:"center",
+      alignItems:"center",
+      height:"55px",
+      border: "2px dashed #B7B5E7",
+      borderRadius:10,
+      cursor:"pointer",
+    }} >
+      <span style={{
+        color:"#0063F0",
+        fontFamily:"Baloo Tammudu 2",
+        fontSize:14,
+        fontWeight:"bold",
+      }} >{`${text}`.toUpperCase()}</span>
+    </div>
+  )
+ }

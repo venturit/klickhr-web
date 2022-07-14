@@ -16,16 +16,19 @@ import DataTable from "./components/shared/tables/dataTable/DataTable";
 import Date from "./components/shared/textfields/date";
 import {
   CustomButton,
+  DashedButton,
   DeleteRoundedButton,
   EditRoundedButton,
   HideRoundedButton,
 } from "./components/shared/buttons/button";
+import { DragAnnoucementCard } from "./components/shared/cards/card";
 
 
 function App() {
+
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      style={{ display: "flex", flexDirection: "column", alignItems: "center", background: "#f5f6fb" }}
     >
       Components
       <div
@@ -64,18 +67,24 @@ function App() {
           values={[96, 7, 28, 30, 45, 15]}
         />
         </div>
-        
-        <div style={{
-          display:"flex",
-          gap:"1em",
-          marginTop:"3em"
-        }} >
-          <EditRoundedButton/>
-          <DeleteRoundedButton/>
-          <HideRoundedButton/>
-          <Date/>
+        <div style={{ display: "flex", flexDirection: "column", gap: "2em" }}>
+          <div style={{
+            display: "flex",
+            gap: "1em",
+            marginTop: "3em"
+          }} >
+            <EditRoundedButton />
+            <DeleteRoundedButton />
+            <HideRoundedButton />
+            <Date />
+          </div>
+          <div>
+            <DragAnnoucementCard />
+          </div>
+          <div>
+            <DashedButton />
+          </div>
         </div>
-
       </div>
   
   );
