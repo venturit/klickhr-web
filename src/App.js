@@ -7,13 +7,22 @@ import { CustomSwitch } from "./components/shared/buttons/switch";
 import CardInformation from "./components/shared/cards/CardInformation";
 import ButtonOutlined from "./components/shared/buttons/ButtonOutlined";
 import CardAnnouncement from "./components/shared/cards/CardAnnouncement";
-import DataTable from "./components/shared/tables/DataTable";
+import BasicTable from "./components/shared/tables/BasicTable";
 import DoughnutChart from "./components/shared/charts/Doughnut";
+import InputSearch from "./components/shared/textfields/searcherCategories/Search";
+import Input from "./components/shared/textfields/Input";
+import AutocompleteInput from "./components/shared/textfields/Autocomplete";
+import DataTable from "./components/shared/tables/DataTable";
 
 function App() {
   return (
     <div
-      style={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        backgroundColor: "aliceblue",
+      }}
     >
       Components
       <div
@@ -23,7 +32,8 @@ function App() {
           justifyContent: "center",
           alignItems: "center",
           width: 500,
-          flexWrap: "wrap",
+          flexDirection: "column",
+          // flexWrap: "wrap",
         }}
       >
         <Email />
@@ -41,6 +51,10 @@ function App() {
           title="¡Summer isn't over yet!"
           description="Show your badge for free ice cream in the cafeteria on August 31st"
         />
+        <InputSearch />
+        <Input label={"Department Name"} />
+        <AutocompleteInput label={"Location"} />
+        <BasicTable />
         <DataTable />
         <DoughnutChart
           labels={["One", "Two", "Three", "Four", "Five", "Six"]}

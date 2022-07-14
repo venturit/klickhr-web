@@ -1,138 +1,203 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import "./DataTableStyles.css";
+import { DataGrid } from "@mui/x-data-grid";
+import { createStyles, makeStyles } from "@mui/styles";
+import { Button, IconButton, Pagination, Stack } from "@mui/material";
+import EditIcon from "@mui/icons-material/EditOutlined";
+import DeleteIcon from "@mui/icons-material/DeleteOutlineOutlined";
 
-//Components MUI
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import { Avatar, Stack, Typography } from "@mui/material";
+const columns = [
+  {
+    field: "employeeName",
+    headerName: "Employee Name",
+    width: 130,
+    sortable: false,
+  },
+  { field: "id", headerName: "ID", width: 70, sortable: false },
+  { field: "email", headerName: "Email", width: 130, sortable: false },
+  {
+    field: "jobTitle",
+    headerName: "Job Title",
+    width: 90,
+    sortable: false,
+  },
+  {
+    field: "role",
+    headerName: "Role",
+    // description: "This column has a value getter and is not sortable.",
+    sortable: false,
+    width: 130,
+    // valueGetter: (params) =>
+    //   `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+  },
+  { field: "startDate", headerName: "Start Date", width: 100, sortable: false },
+  {
+    field: "action",
+    headerName: "...",
+    sortable: false,
+    renderCell: (params) => {
+      const onClick = (e) => {
+        e.stopPropagation();
+        console.log("Hola");
+      };
 
-//Styles
-const StyledTableCell = styled(TableCell)({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "#0063F0",
-    color: "#FFFFFF",
-    border: "none",
-    "&:first-of-type": {
-      borderRadius: "5px 0 0 0",
-    },
-    "&:last-child": {
-      borderRadius: "0 5px 0 0",
-    },
-    "&:nth-of-type(n+2)": {
-      textAlign: "center",
+      return (
+        <div>
+          <IconButton size="small">
+            <EditIcon color="#B7B5E7" />
+          </IconButton>
+          <IconButton size="small">
+            <DeleteIcon color="#B7B5E7" />
+          </IconButton>
+        </div>
+      );
     },
   },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 13,
-    borderBottom: "none",
-    color: "#444271",
-    padding: "6px 16px",
-    "&:nth-of-type(n+2)": {
-      textAlign: "center",
-    },
-  },
-});
+];
 
-const StyledTableRow = styled(TableRow)({
-  "&:nth-of-type(even)": {
-    backgroundColor: "#EAECF8",
+const rows = [
+  {
+    employeeName: "Henrietta Alvarez",
+    id: "143671",
+    email: "ko@gmh.org",
+    jobTitle: "CNA",
+    role: "Employee",
+    startDate: "03/29/2021",
   },
-});
+  {
+    employeeName: "Henrietta Alvarez",
+    id: "123671",
+    email: "ko@gmh.org",
+    jobTitle: "CNA",
+    role: "Employee",
+    startDate: "03/29/2021",
+  },
+  {
+    employeeName: "Henrietta Alvarez",
+    id: "143671",
+    email: "ko@gmh.org",
+    jobTitle: "CNA",
+    role: "Employee",
+    startDate: "03/29/2021",
+  },
+  {
+    employeeName: "Henrietta Alvarez",
+    id: "143671",
+    email: "ko@gmh.org",
+    jobTitle: "CNA",
+    role: "Employee",
+    startDate: "03/29/2021",
+  },
+  {
+    employeeName: "Henrietta Alvarez",
+    id: "143671",
+    email: "ko@gmh.org",
+    jobTitle: "CNA",
+    role: "Employee",
+    startDate: "03/29/2021",
+  },
+];
+
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+      "& .MuiDataGrid-columnHeaders": {
+        background: "#0063F0",
+        color: "#FFFFFF",
+      },
+
+      "& .MuiDataGrid-checkboxInput": {
+        color: "#8280B1",
+
+        "&.Mui-checked": {
+          color: "#8280B1",
+        },
+      },
+
+      "& .MuiDataGrid-row": {
+        backgroundColor: "#FFFFFF",
+
+        "&:nth-of-type(even)": {
+          backgroundColor: "#F6F6FF",
+        },
+      },
+
+      "& .MuiDataGrid-cell": {
+        borderRight: "1px solid #E6E5F8",
+        borderBottom: "1px solid transparent !important",
+        borderLeft: "1px solid transparent !important",
+      },
+
+      "& .MuiDataGrid-columnSeparator": {
+        visibility: "hidden",
+      },
+
+      "& .MuiDataGrid-rowCount": {
+        backgroundColor: "red",
+      },
+
+      "& 	.MuiDataGrid-footerContainer": {
+        backgroundColor: "pink",
+        border: "none",
+        width: "max-content",
+      },
+      // "& .MuiDataGrid-columnHeaderTitleContainer": {
+      //   display: "flex",
+      //   justifyContent: "center",
+      // },
+
+      // "& .MuiDataGrid-columnHeaderCheckbox": {
+      //   color: "#FFFFFF !important",
+      // },
+    },
+
+    pagination: {
+      "& .MuiPagination-ul": {
+        backgroundColor: "#FFFFFF",
+        border: "1px solid #E6E5F8",
+        borderRadius: "8px",
+        width: "max-content",
+        padding: "0.5em",
+        color: "#B7B5E7",
+      },
+
+      "& .MuiPaginationItem-root": {
+        color: "#B7B5E7",
+      },
+
+      "& .css-1oj2twp-MuiPagination-root": {
+        display: "flex",
+        justifyContent: "end",
+      },
+    },
+  })
+);
 
 const DataTable = () => {
-  const headers = ["Name", "Employees"];
-  const data = [
-    {
-      name: "Luisa",
-      employees: 12,
-    },
-    {
-      name: "Camilo",
-      employees: 9,
-    },
-    {
-      name: "Piyush",
-      employees: 23,
-    },
-  ];
-  const rows = ["name", "employees"];
-
-  //Functions
-  const stringToColor = (string) => {
-    let hash = 0;
-    let i;
-
-    for (i = 0; i < string.length; i += 1) {
-      hash = string.charCodeAt(i) + ((hash << 5) - hash);
-    }
-
-    let color = "#";
-
-    for (i = 0; i < 3; i += 1) {
-      const value = (hash >> (i * 8)) & 0xff;
-      color += `00${value.toString(16)}`.slice(-2);
-    }
-
-    return color;
-  };
-
-  const stringAvatar = (name) => {
-    return {
-      sx: {
-        bgcolor: stringToColor(name),
-      },
-      children: `${name.split(" ")[0][0]}`,
-    };
-  };
-
+  const classes = useStyles();
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="customized table">
-        <TableHead>
-          <TableRow>
-            {headers.map((name, i) => {
-              return <StyledTableCell key={i}>{name}</StyledTableCell>;
-            })}
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((item) => {
-            return (
-              <StyledTableRow key={item.id}>
-                {rows.map((rowValue, i) => (
-                  <React.Fragment key={i}>
-                    {rowValue === "name" ? (
-                      <StyledTableCell component="th" scope="row">
-                        <Stack
-                          direction="row"
-                          spacing={2}
-                          sx={{ alignItems: "center" }}
-                        >
-                          <Avatar {...stringAvatar(item[rowValue])} />
-                          <Typography sx={{ fontSize: 13, color: "#444271" }}>
-                            {item[rowValue]}
-                          </Typography>
-                        </Stack>
-                      </StyledTableCell>
-                    ) : (
-                      <StyledTableCell component="th" scope="row">
-                        {item[rowValue]}
-                      </StyledTableCell>
-                    )}
-                  </React.Fragment>
-                ))}
-              </StyledTableRow>
-            );
-          })}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div style={{ height: 500, width: "100%" }}>
+      <DataGrid
+        className={classes.root}
+        // rowCount=
+        rows={rows}
+        disableColumnMenu={true}
+        hideFooter={true}
+        hideFooterPagination={true}
+        columns={columns}
+        pageSize={3}
+        rowsPerPageOptions={[5]}
+        checkboxSelection
+        sx={{
+          boxShadow: "0 1px 10px 0 rgba(130,128,177,0.29)",
+          borderRadius: "5px 5px 0 0",
+          border: "none",
+        }}
+      />
+
+      <Stack spacing={2}>
+        <Pagination className={classes.pagination} count={10} shape="rounded" />
+      </Stack>
+    </div>
   );
 };
 
