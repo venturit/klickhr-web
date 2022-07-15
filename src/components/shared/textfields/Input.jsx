@@ -11,6 +11,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
   "& .MuiInputBase-input": {
     backgroundColor: "#FFFFFF",
     borderRadius: 5,
+    border: "2px solid transparent",
     boxShadow: "0 5px 13px 0 rgba(52,51,101,0.09)",
     color: "#8280B1",
     fontSize: 14,
