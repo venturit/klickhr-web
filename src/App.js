@@ -7,12 +7,12 @@ import { CustomSwitch } from "./components/shared/buttons/switch";
 import CardInformation from "./components/shared/cards/CardInformation";
 import ButtonOutlined from "./components/shared/buttons/ButtonOutlined";
 import CardAnnouncement from "./components/shared/cards/CardAnnouncement";
-import BasicTable from "./components/shared/tables/BasicTable";
+import BasicTable from "./components/shared/tables/basicTable/BasicTable";
 import DoughnutChart from "./components/shared/charts/Doughnut";
 import InputSearch from "./components/shared/textfields/searcherCategories/Search";
 import Input from "./components/shared/textfields/Input";
 import AutocompleteInput from "./components/shared/textfields/Autocomplete";
-import DataTable from "./components/shared/tables/DataTable";
+import DataTable from "./components/shared/tables/dataTable/DataTable";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
           margin: 10,
           justifyContent: "center",
           alignItems: "center",
-          width: 500,
+          width: "80%",
           flexDirection: "column",
           // flexWrap: "wrap",
         }}
@@ -44,7 +44,7 @@ function App() {
           title="30 - 60"
           description="23 Sessions"
           disabled
-          // type="three"
+          type="four"
         />
         <ButtonOutlined name="GO TO ANNOUNCEMENTS" />
         <CardAnnouncement

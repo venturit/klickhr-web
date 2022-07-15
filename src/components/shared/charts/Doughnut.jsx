@@ -49,7 +49,7 @@ export const DoughnutChart = ({ labels, values }) => {
   };
 
   return (
-    <div style={{ width: "80%" }}>
+    <div style={{ width: "40%" }}>
       <Doughnut data={data} options={options} />
     </div>
   );

@@ -1,0 +1,11 @@
+.css-13x7kvu-MuiDataGrid-root {
+    display: flex !important;
+    justify-content: end;
+    margin-top: 1em;
+  }
+
+  .css-204u17-MuiDataGrid-main {
+    box-shadow: 0 1px 10px 0 rgba(130,128,177,0.29) !important;
+    border-radius: 5px 5px 0 0 !important;
+    border: none !important
+  }

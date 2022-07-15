@@ -97,7 +97,7 @@ const BasicTable = () => {
   };
 
   return (
-    <TableContainer component={Paper} sx={{ width: "60%" }}>
+    <TableContainer component={Paper} sx={{ width: "40%" }}>
       <Table aria-label="customized table">
         <TableHead>
           <TableRow>
