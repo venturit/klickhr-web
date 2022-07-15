@@ -17,12 +17,12 @@ export const DragAnnoucementCard = (props) => {
 
     const announcementData = [
         {
-          title: "ATTENTION ALL STAFF",
-          description: "The East Parking Lot will be unavailable on December 4th & 5th. Please plan accordingly.",
-          dates: "Created in July 01, 2021  |   Valid thru December 31, 2021",
-          position: 1,
+            title: "ATTENTION ALL STAFF",
+            description: "The East Parking Lot will be unavailable on December 4th & 5th. Please plan accordingly.",
+            dates: "Created in July 01, 2021  |   Valid thru December 31, 2021",
+            position: 1,
         }
-      ]
+    ]
 
     return (
         <>
