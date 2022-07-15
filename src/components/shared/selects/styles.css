@@ -1,0 +1,5 @@
+/* Custom styles for select input */
+
+.custom__select select{
+    display: none;
+}

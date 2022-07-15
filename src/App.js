@@ -21,7 +21,7 @@ import {
   EditRoundedButton,
   HideRoundedButton,
 } from "./components/shared/buttons/button";
-import { DragAnnoucementCard } from "./components/shared/cards/card";
+import { DragAnnoucementCard, DragTemplateCard } from "./components/shared/cards/card";
 
 
 function App() {
@@ -83,6 +83,9 @@ function App() {
           </div>
           <div>
             <DashedButton />
+          </div>
+          <div>
+            <DragTemplateCard/>
           </div>
         </div>
       </div>
