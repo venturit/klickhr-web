@@ -98,7 +98,7 @@ export const QuestionContentType = ({ questionType }) => {
             sx={{
               fontSize: 13,
               minHeight: 83,
-              paddingLeft:3,
+              paddingLeft: 3,
               color: "#8280B1",
               background: "#F5F6FC",
               fontFamily: "Baloo Tammudu 2",
