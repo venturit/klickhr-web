@@ -96,10 +96,9 @@ export const QuestionContentType = ({ questionType }) => {
             minRows={4.4}
             placeholder="Enter comments"
             sx={{
-              paddingLeft: 1,
-              paddingRight: 1,
               fontSize: 13,
               minHeight: 83,
+              paddingLeft:3,
               color: "#8280B1",
               background: "#F5F6FC",
               fontFamily: "Baloo Tammudu 2",
@@ -112,6 +111,7 @@ export const QuestionContentType = ({ questionType }) => {
             }}
           />
         </div>
+        
         <div>
           <FormControlLabel control={<Checkbox/>} 
             sx={{ 

@@ -2,6 +2,7 @@ import React from 'react';
 import { UseSelect } from '../selects/select';
 import dragIdentifier from './Group2Copy.svg';
 import { QuestionContentType } from './questionContent';
+import { options } from '../../../utils/optionsQuestionTemplate';
 import './styles.css';
 
 export const DragAnnoucementCard = (props) => {
@@ -68,30 +69,6 @@ export const DragAnnoucementCard = (props) => {
         </>
     );
 };
-
-const options = [
-    {
-        label: 'Checkbox',
-        value: 'Checkbox',
-    },
-    {
-        label: 'Radio',
-        value: 'Radio',
-    },
-    {
-        label: 'Recognition',
-        value: 'Recognition',
-    },
-    {
-        label: 'Summary Status',
-        value: 'Summary Status',
-    }
-    ,
-    {
-        label: 'Text',
-        value: 'Text',
-    },
-];
 
 export const DragTemplateCard = () => {
     const [questionType, setQuestionType] = React.useState(null)
