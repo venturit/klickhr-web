@@ -1,11 +1,12 @@
-import * as React from 'react';
+import React from 'react';
 import { useSelect } from '@mui/base';
-import { styled } from '@mui/system';
+import { InputLabel } from "@mui/material";
 import { useComponentVisible } from '../../../utils/useOutsideAlerter';
+import styled from "styled-components";
 
 const Root = styled('div')`
-  font-family: IBM Plex Sans, sans-serif;
-  font-size: 0.875rem;
+  font-family: Baloo Tammudu 2;
+  font-size: 13px;
   position: relative;
   display: inline-block;
   vertical-align: baseline;
@@ -22,7 +23,7 @@ const Toggle = styled('div')(
   background: #FFFFFF;
   box-shadow: 0 5px 13px 0 rgba(52,51,101,0.09);
   border-radius: 5px;
-  padding: 10px;
+  padding: 7px;
   text-align: left;
   color: #8280B1;
   cursor: default;
@@ -72,30 +73,13 @@ const Listbox = styled('ul')(
   `,
 );
 
-const options = [
-    {
-        label: 'Checkbox',
-        value: 'Checkbox',
-    },
-    {
-        label: 'Radio',
-        value: 'Radio',
-    },
-    {
-        label: 'Text',
-        value: 'Text',
-    },
-];
 
 
-
-
-
-function CustomSelect({ options, placeholder, icon }) {
+function CustomSelect({ options, placeholder, setQuestionType }) {
     const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
     const listboxRef = React.useRef(null);
 
-    const { getButtonProps, getListboxProps, getOptionProps, value } = useSelect({
+    const { getButtonProps, getListboxProps, getOptionProps, value='Text' } = useSelect({
         listboxRef,
         options,
     });
@@ -104,38 +88,53 @@ function CustomSelect({ options, placeholder, icon }) {
         if (isComponentVisible) {
             listboxRef.current.focus();
         }
-    }, [isComponentVisible]);
+        setQuestionType(value);
+    }, [isComponentVisible, value]);
 
     return (
-        <Root
-            onClick={() => setIsComponentVisible(!isComponentVisible)}
-            ref={ref}
-        >
-            <Toggle {...getButtonProps()}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <div>{value ? value : placeholder}</div>
-                    <div
-                        style={{
-                            fontFamily: "Feather-Icons",
-                            fontSize: 24,
-                            color: "#0063F0",
-                        }}
-                    >
-                        
+        <div>
+            <div
+                style={{
+                    color: "#343365",
+                    fontFamily: "Baloo Tammudu 2",
+                    fontSize: 13,
+                    fontWeight: 400,
+                    marginBottom: 7,
+                }}
+            >
+                Question type
+            </div>
+            <Root
+                id='questionType'
+                onClick={() => { setIsComponentVisible(!isComponentVisible) }}
+                ref={ref}
+            >
+                <Toggle {...getButtonProps()}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                        <div>{value ? value : placeholder}</div>
+                        <div
+                            style={{
+                                fontFamily: "Feather-Icons",
+                                fontSize: 24,
+                                color: "#0063F0",
+                            }}
+                        >
+                            
+                        </div>
                     </div>
-                </div>
-            </Toggle>
-            <Listbox {...getListboxProps()} className={isComponentVisible ? '' : 'hidden'}>
-                {options.map((option) => (
-                    <li key={option.value} {...getOptionProps(option)}>
-                        {option.label}
-                    </li>
-                ))}
-            </Listbox>
-        </Root>
+                </Toggle>
+                <Listbox {...getListboxProps()} className={isComponentVisible ? '' : 'hidden'}>
+                    {options.map((option) => (
+                        <li key={option.value} {...getOptionProps(option)}>
+                            {option.label}
+                        </li>
+                    ))}
+                </Listbox>
+            </Root>
+        </div>
     );
 }
 
-export function UseSelect() {
-    return <CustomSelect placeholder="Select" icon={'some'} options={options} />;
+export function UseSelect({ options, setQuestionType }) {
+    return <CustomSelect placeholder="Select" setQuestionType={setQuestionType} options={options} />;
 }

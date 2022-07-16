@@ -1,6 +1,7 @@
 import React from 'react';
 import { UseSelect } from '../selects/select';
 import dragIdentifier from './Group2Copy.svg';
+import { QuestionContentType } from './questionContent';
 import './styles.css';
 
 export const DragAnnoucementCard = (props) => {
@@ -16,7 +17,7 @@ export const DragAnnoucementCard = (props) => {
     const announcementData = [
         {
             title: "ATTENTION ALL STAFF",
-            description: "The East Parking Lot will be unavailable on December 4th & 5th. Please plan accordingly.",
+            description: "Please plan accordingly.",
             dates: "Created in July 01, 2021  |   Valid thru December 31, 2021",
             position: 1,
         }
@@ -68,24 +69,46 @@ export const DragAnnoucementCard = (props) => {
     );
 };
 
+const options = [
+    {
+        label: 'Checkbox',
+        value: 'Checkbox',
+    },
+    {
+        label: 'Radio',
+        value: 'Radio',
+    },
+    {
+        label: 'Recognition',
+        value: 'Recognition',
+    },
+    {
+        label: 'Summary Status',
+        value: 'Summary Status',
+    }
+    ,
+    {
+        label: 'Text',
+        value: 'Text',
+    },
+];
+
 export const DragTemplateCard = () => {
+    const [questionType, setQuestionType] = React.useState(null)
     return (
         <div className={`dragCard__container`}>
             <div className='drag__indicator'>
                 <img src={dragIdentifier} className="drag__img" alt="" />
             </div>
 
-            <div className='dragCard__content'>
-                <div className='newTemplate__card__question'>
-                    Titulo
-                </div>
+            <div className='dragCard__content__template'>
                 <div className='newTemplate__card__body'>
-                    Type text
+                    <QuestionContentType questionType={questionType} />
                 </div>
             </div>
 
             <div className='dragCard__end'>
-                <UseSelect/>
+                <UseSelect options={options} setQuestionType={setQuestionType} />
             </div>
         </div>
     )

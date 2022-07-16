@@ -1,4 +1,4 @@
-/* Styles template drag card  */
+/* Styles drag card  */
 
 .dragCard__container {
     min-height: 75px;
@@ -17,11 +17,10 @@
 }
 
 .dragCard__content{
-    margin-top: 29px;
-    width: auto;
     margin-left: 31px;
     margin-right: 10px;
     cursor: pointer;
+    width: 100%;
 }
 
 .dragCard__end{
@@ -43,6 +42,7 @@
     font-weight: 800;
     letter-spacing: -0.14px;
     line-height: 22px;
+    margin-top: 29px;
 }
 
 .announcement__body{
@@ -95,4 +95,9 @@
 
 .newTemplate__card__title {
     font-size: 13px;
+}
+
+.dragCard__content__template{
+    margin: 18px 10px 15px 31px;
+    width: 100%;
 }
