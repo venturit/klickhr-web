@@ -18,7 +18,7 @@ export default function SignIn(){
     
 
     return(
-        <div>
+        <div> changes
  Sign In page
  <div onClick={()=>dispatch(setUserDetail({user_id:1,is_authenticated:true,user_role:1}))}>Click here to SignIn to check protected routing</div>
  <div onClick={()=>dispatch(setUserDetail({user_id:1,is_authenticated:false,user_role:1}))}>Click here to SignOut to check protected routing</div>
