@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 import { useSelect } from '@mui/base';
-import { InputLabel } from "@mui/material";
 import { useComponentVisible } from '../../../utils/useOutsideAlerter';
 import styled from "styled-components";
+
 
 const Root = styled('div')`
   font-family: Baloo Tammudu 2;
@@ -11,6 +11,7 @@ const Root = styled('div')`
   display: inline-block;
   vertical-align: baseline;
   color: #000;
+  width:100%;
 `;
 
 const Toggle = styled('div')(
@@ -19,7 +20,7 @@ const Toggle = styled('div')(
   font-size: 13px;
   box-sizing: border-box;
   min-height: 40px;
-  min-width: 160px;
+  width: 100%;
   background: #FFFFFF;
   box-shadow: 0 5px 13px 0 rgba(52,51,101,0.09);
   border-radius: 5px;
@@ -73,13 +74,27 @@ const Listbox = styled('ul')(
   `,
 );
 
+const defaultOptions = [
+    {
+        label:'Option 1',
+        value:'Option 1',
+    },
+    {
+        label:'Option 2',
+        value:'Option 2',
+    },
+    {
+        label:'Option 3',
+        value:'Option 3',
+    }
+]
 
-
-function CustomSelect({ options, placeholder, setQuestionType }) {
+export function CustomSelect ({ options=defaultOptions , placeholder, selectLabel,st, setQuestionType, defaultValue, id }) {
     const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
     const listboxRef = React.useRef(null);
 
-    const { getButtonProps, getListboxProps, getOptionProps, value='Text' } = useSelect({
+    //Radio default value for Template card questions
+    const { getButtonProps, getListboxProps, getOptionProps, value=defaultValue } = useSelect({
         listboxRef,
         options,
     });
@@ -88,11 +103,11 @@ function CustomSelect({ options, placeholder, setQuestionType }) {
         if (isComponentVisible) {
             listboxRef.current.focus();
         }
-        setQuestionType(value);
+        setQuestionType&&setQuestionType(value);
     }, [isComponentVisible, value]);
 
     return (
-        <div>
+        <div style={st} >
             <div
                 style={{
                     color: "#343365",
@@ -100,12 +115,13 @@ function CustomSelect({ options, placeholder, setQuestionType }) {
                     fontSize: 13,
                     fontWeight: 400,
                     marginBottom: 7,
+                    
                 }}
             >
-                Question type
+                {selectLabel}
             </div>
             <Root
-                id='questionType'
+                id={id}
                 onClick={() => { setIsComponentVisible(!isComponentVisible) }}
                 ref={ref}
             >
