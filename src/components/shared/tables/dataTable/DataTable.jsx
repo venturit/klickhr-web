@@ -4,7 +4,6 @@ import "./DataTableStyles.css";
 //MUI Components
 import {
   DataGrid,
-  GridActionsCellItem,
   gridPageCountSelector,
   gridPageSelector,
   useGridApiContext,
@@ -12,154 +11,6 @@ import {
 } from "@mui/x-data-grid";
 import { createStyles, makeStyles } from "@mui/styles";
 import { Pagination } from "@mui/material";
-
-//MUI Icons
-import EditIcon from "@mui/icons-material/EditOutlined";
-import DeleteIcon from "@mui/icons-material/DeleteOutlineOutlined";
-
-const columns = [
-  {
-    cellClassName: "column-name-styles",
-    field: "employeeName",
-    flex: 3,
-    headerName: "Employee Name",
-    sortable: false,
-  },
-  {
-    cellClassName: "column-cell-styles",
-    field: "id",
-    flex: 2,
-    headerName: "ID",
-    sortable: false,
-  },
-  {
-    cellClassName: "column-email-styles",
-    field: "email",
-    flex: 3,
-    headerName: "Email",
-    sortable: false,
-  },
-  {
-    cellClassName: "column-cell-styles",
-    field: "jobTitle",
-    flex: 2,
-    headerName: "Job Title",
-    sortable: false,
-  },
-  {
-    cellClassName: "column-cell-styles",
-    field: "role",
-    flex: 3,
-    headerName: "Role",
-    sortable: false,
-  },
-  {
-    cellClassName: "column-cell-styles",
-    field: "startDate",
-    flex: 2,
-    headerName: "Start Date",
-    sortable: false,
-  },
-  {
-    field: "actions",
-    headerName: "...",
-    sortable: false,
-    type: "actions",
-    getActions: () => [
-      <GridActionsCellItem
-        icon={<EditIcon color="#B7B5E7" />}
-        onClick={() => console.log("Edit")}
-      />,
-      <GridActionsCellItem
-        icon={<DeleteIcon color="#B7B5E7" />}
-        onClick={() => console.log("Delete")}
-      />,
-    ],
-  },
-];
-
-const rows = [
-  {
-    employeeName: "Henrietta Alvarez",
-    id: "143671",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-  {
-    employeeName: "Eliza Murphy",
-    id: "4646546",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-  {
-    employeeName: "Marion Lopez",
-    id: "4324343",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-  {
-    employeeName: "Pearl Carter",
-    id: "0980890",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-  {
-    employeeName: "Annie Chandler",
-    id: "143434234671",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-  {
-    employeeName: "Hannah Davis",
-    id: "645654",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-  {
-    employeeName: "Donald Fowler",
-    id: "12312",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-  {
-    employeeName: "Wayne Grant",
-    id: "8798979",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-  {
-    employeeName: "Georgie Atkins",
-    id: "2131232",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-  {
-    employeeName: "Helen Day",
-    id: "0797887",
-    email: "ko@gmh.org",
-    jobTitle: "CNA",
-    role: "Employee",
-    startDate: "03/29/2021",
-  },
-];
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -203,6 +54,7 @@ const useStyles = makeStyles(() =>
 
       "& .MuiDataGrid-row": {
         backgroundColor: "#FFFFFF",
+        padding: "0.5em 0",
 
         "&:nth-of-type(even)": {
           backgroundColor: "#F6F6FF",
@@ -227,6 +79,14 @@ const useStyles = makeStyles(() =>
         border: "none",
         width: "100%",
       },
+
+      "& .MuiDataGrid-cell--textLeft": {
+        justifyContent: "center !important",
+      },
+
+      "& .MuiDataGrid-columnHeaderTitleContainer ": {
+        justifyContent: "center !important",
+      },
     },
 
     pagination: {
@@ -235,6 +95,7 @@ const useStyles = makeStyles(() =>
         border: "1px solid #E6E5F8",
         borderRadius: "8px",
         color: "#B7B5E7",
+        marginTop: "1em",
         padding: "0.5em",
         width: "max-content",
       },
@@ -246,7 +107,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const DataTable = () => {
+const DataTable = ({ columns, rows, checkbox }) => {
   const classes = useStyles();
 
   function CustomPagination() {
@@ -271,7 +132,7 @@ const DataTable = () => {
       <DataGrid
         autoHeight
         autoPageSize
-        checkboxSelection
+        checkboxSelection={checkbox}
         className={classes.root}
         columnBuffer={0}
         columns={columns}

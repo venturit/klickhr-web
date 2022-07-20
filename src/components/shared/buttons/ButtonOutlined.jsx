@@ -10,6 +10,10 @@ const ButtonOutline = styled(Button)({
   fontSize: "14px",
   borderRadius: "10px",
   padding: "3px 5px",
+
+  ["@media (max-width:600px)"]: {
+    fontSize: "12px",
+  },
 });
 
 const ButtonOutlined = ({ name }) => {

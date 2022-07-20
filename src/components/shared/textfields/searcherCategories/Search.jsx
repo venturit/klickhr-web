@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 
+//Components
+import OptionsMenu from "./OptionsMenu";
+
 //MUI Components
 import { InputBase, Paper, styled } from "@mui/material";
 import Search from "@mui/icons-material/SearchRounded";
 import Close from "@mui/icons-material/Close";
-import OptionsMenu from "./OptionsMenu";
 
 const SearchStyles = styled(Search)({
   color: "#0063F0",
@@ -33,7 +35,6 @@ const PaperStyles = styled(Paper)({
   borderRadius: 5,
   display: "flex",
   margin: "0.5em 0 0.5em 0",
-  margin: "2em",
   width: 300,
 });
 
