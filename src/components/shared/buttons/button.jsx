@@ -1,21 +1,29 @@
 import React from "react";
 import { Button, IconButton } from "@mui/material";
+import { Provider } from "react-redux";
 
 export function CustomButton(props) {
   return (
     <div>
       <Button
+      
         variant="contained"
         size="small"
-        style={{
+        name='submit'
+        sx={{
           textTransform: "none",
-          margin: 10,
+          color:props.textColor?props.textColor:'#FFFFFF',
+          margin: 1,
           width: 348,
-          backgroundColor: "#0063F0",
+          backgroundColor:props.col?props.col:"#0063F0",
+          borderRadius:2,
+          fontFamily: "Baloo Tammudu 2",
+          fontSize: 13,
+         
         }}
         {...props}
       >
-        Sign in
+       {props.label? props.label:'Sign in'}
       </Button>
     </div>
   );
