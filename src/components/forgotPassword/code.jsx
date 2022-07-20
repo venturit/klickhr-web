@@ -59,8 +59,13 @@ default:
   lineHeight: 2,marginBottom:21}}>
   We have sent you an email with a 6-digit recovery code.
   </div>
-   <div style={{marginBottom:13}}>
-<AuthenticateCodeField/>
+   <div style={{display:'flex',flexDirection:'column',marginBottom:13,}}>
+    <div style={{color: "#343365",
+  fontFamily: "Baloo Tammudu 2",
+  fontSize: 13,
+  letterSpacing: 0,
+  lineHeight: 2,alignSelf:'center'}}>Please enter the code below</div>
+<AuthenticateCodeField onChange={(a)=>console.log(a)}/>
 
 
    </div>
