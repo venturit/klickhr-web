@@ -101,6 +101,7 @@ const OptionsMenu = ({ inputValue }) => {
           }
           label={<TypographyStyles>Department</TypographyStyles>}
         />
+
         <FormControlLabelStyles
           value="employee"
           control={
@@ -114,8 +115,8 @@ const OptionsMenu = ({ inputValue }) => {
         />
       </RadioGroupStyles>
 
-      {data[selectedCategory].map((department) => {
-        return <Category>{department.value}</Category>;
+      {data[selectedCategory].map((department, i) => {
+        return <Category key={i}>{department.value}</Category>;
       })}
     </OptionsContainer>
   );

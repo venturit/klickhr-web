@@ -7,6 +7,10 @@ const TitleCard = styled.p`
   font-weight: 800;
   z-index: 2;
   margin: 0;
+
+  @media (max-width: 600px) {
+    font-size: 18px;
+  }
 `;
 
 const CardDescription = styled.p`
@@ -15,6 +19,10 @@ const CardDescription = styled.p`
   font-weight: 800;
   z-index: 2;
   margin: 10px 0 0 0;
+
+  @media (max-width: 600px) {
+    font-size: 13px;
+  }
 `;
 
 const MainCard = styled.div`
@@ -33,9 +41,20 @@ const MainCard = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  height: max-content;
   overflow: hidden;
-  position: relative;
   padding: 1.5em 2em;
+  position: relative;
+  min-width: 10em;
+
+  :nth-of-type(n + 2) {
+    margin-left: 1em;
+  }
+
+  @media (max-width: 600px) {
+    padding: 0.5em 0em;
+    min-width: 7em;
+  }
 `;
 
 const Triangle = styled.div`
@@ -50,7 +69,7 @@ const Triangle = styled.div`
   position: absolute;
   right: 0;
   width: 0;
-  z-index: 2;
+  z-index: 0;
 `;
 
 const Rectangle = styled.div`
@@ -78,10 +97,11 @@ const Rectangle = styled.div`
 //Three: for medium blue card.
 //Four: for dark blue card.
 
-const CardInformation = ({ title, description, type, disabled }) => {
+const CardInformation = ({ title, description, type, disabled, onClick }) => {
   return (
-    <MainCard type={type} disabled>
+    <MainCard type={type} disabled onClick={type !== "" ? onClick : null}>
       <TitleCard>{title}</TitleCard>
+
       <CardDescription>{description}</CardDescription>
 
       {type === "one" ? (
@@ -94,7 +114,7 @@ const CardInformation = ({ title, description, type, disabled }) => {
           <Rectangle type={type} right="163px" />
         </>
       ) : (
-        disabled && <Rectangle disabled />
+        <Rectangle disabled />
       )}
     </MainCard>
   );
