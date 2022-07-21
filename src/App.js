@@ -12,6 +12,7 @@ function App() {
 
   return (
  <Router>
+  <AppContainer/>
    <Routes>
      <Route path="/" element={<SignIn/>}/>
      <Route path="/forgot_password" element={<ForgotPassword/>}/>
