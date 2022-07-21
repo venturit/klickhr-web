@@ -16,7 +16,7 @@ import {
 const CardResponsive = ({ name, form, jobTitle, lastSession }) => {
   return (
     <PaperResponsive elevation="0">
-      <Grid container>
+      <Grid container justifyContent="center">
         <Grid item xs={2}>
           <Avatar {...stringAvatar("Solly Roberts")} />
         </Grid>
@@ -37,7 +37,7 @@ const CardResponsive = ({ name, form, jobTitle, lastSession }) => {
           </Stack>
         </Grid>
 
-        <Grid item xs={4}>
+        <Grid item xs={3}>
           <Stack>
             <TextPaperResponsive sx={{ color: "#8280B1" }}>
               Job Title
@@ -53,8 +53,10 @@ const CardResponsive = ({ name, form, jobTitle, lastSession }) => {
           </Stack>
         </Grid>
 
-        <Grid item xs={2}>
-          <ButtonOutlined name="Resume" />
+        <Grid item xs={3} sx={{ display: "flex", justifyContent: "center" }}>
+          <div>
+            <ButtonOutlined name="Resume" />
+          </div>
         </Grid>
       </Grid>
     </PaperResponsive>

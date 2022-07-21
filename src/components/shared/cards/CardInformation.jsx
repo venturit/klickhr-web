@@ -52,7 +52,7 @@ const MainCard = styled.div`
   }
 
   @media (max-width: 600px) {
-    padding: 0.5em 1em;
+    padding: 0.5em 0em;
     min-width: 7em;
   }
 `;
