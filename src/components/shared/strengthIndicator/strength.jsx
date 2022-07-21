@@ -14,7 +14,7 @@ export default function StrengthIndicator({strength=0}){
             color='#FFA531';
             message='Your password is moderate!';
         }
-       else if(strength==100){
+       else if(strength===100){
             color='#35D842';
             message='Your password is strong!';
         }
@@ -27,14 +27,8 @@ export default function StrengthIndicator({strength=0}){
              } 
             }
             )}
-            
-            {/* <div style={{backgroundColor:color,height:4,width:50}}></div>
-            <div style={{backgroundColor:color,height:4,width:50}}></div>
-            <div style={{backgroundColor:color,height:4,width:50}}></div>
-            <div style={{backgroundColor:color,height:4,width:50}}></div>
-            <div style={{backgroundColor:color,height:4,width:50}}></div> */}
         </div>
-        <div style={{display:'flex',alignSelf:'center',color:'#8280B1',
+        <div style={{display:'flex',alignSelf:'center',color:'#8280B1',marginTop:8,
   fontFamily: "Open Sans",
   fontSize: 14,lineHeight:2,
   letterSpacing: 0}}>{message}</div>

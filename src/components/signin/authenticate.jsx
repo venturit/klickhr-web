@@ -6,14 +6,13 @@ import { validatePassword } from '../../utils/validators';
 import { Grid } from '@mui/material';
 import { CustomButton } from '../shared/buttons/button';
 import Inbox from '../../resources/images/forgotPassword/inboxCheck.jpg';
-import MobileImage from '../../resources/images/signIn/signInMobile.jpg';
 import { AuthenticateCodeField } from '../shared/textfields/customAuthenticateCode';
 
 
 const primaryColor ="rgba(130,128,177,0.2)";
 const secondaryColor ="#0063F0";
 
-export default function PasswordSetupCode({setStep,mobileView}){
+export default function AuthenticateAccount({setStep}){
     const [email,setEmail] = useState({value:"",is_valid:false});
     const [password,setPassword] = useState({value:"",is_valid:false});
     const [otp,setOtp] = useState("");
@@ -62,21 +61,18 @@ const handleCode = (a)=>{
       
              <Grid  sx={{flex:1,flexDirection:'column',
     height:'100vh',padding:4,position:'relative'}}> 
-    {mobileView && <div style={{position:'absolute',top:0,left:0,backgroundImage:`url(${MobileImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:164,width:'100%',color: '#FFFFFF',
-        fontFamily: 'Ageo',
-        fontSize: 30,
-        fontWeight: 'bold',}}></div>}
-<div style={{display:'flex',flexDirection:'column',position:'absolute',top:'50%',left:'50%',alignSelf:'center',transform: 'translate(-50%, -50%)'}}>
+<div style={{display:'flex',flexDirection:'column',position:'absolute',top:'50%',left:'50%',alignSelf:'center',transform: 'translate(-50%, -50%)',maxWidth:450}}>
     <div style={{display:'flex', color: '#343365',
   fontFamily: 'Ageo',
   fontSize: 30,
-  fontWeight:'bold',marginBottom:19,justifyContent:'center'}}>Check your inbox!</div>
+  fontWeight:'bold',marginBottom:19,alignSelf:'center',}}>Authenticate Account</div>
   <div style={{alignSelf:'center',color: "#444271",
   fontFamily: "Baloo Tammudu 2",
   fontSize: 13,
   letterSpacing: 0,
-  lineHeight: 2,marginBottom:21}}>
-  We have sent you an email with a 6-digit recovery code.
+  lineHeight: 2,marginBottom:42,width:230}}>
+  Please enter the code we just sent 
+to your email is*****own@g****mem.org
   </div>
    <div style={{display:'flex',flexDirection:'column',marginBottom:57,minWidth:450}}>
     <div style={{color: "#343365",
@@ -90,7 +86,7 @@ const handleCode = (a)=>{
    </div>
    
  
-   <div style={{ marginBottom:17}}><CustomButton name="button" label="Set up new password" sx={{textTransform: "none",
+   <div style={{ marginBottom:17}}><CustomButton name="button" label="OK" sx={{textTransform: "none",
           color:color==="#0063F0"?"#FFFFFF":"#8280B1",
           margin: 1,
           width: '100%',
@@ -107,13 +103,7 @@ const handleCode = (a)=>{
   
    </div>
    </Grid>
-   {!mobileView &&<Grid container  sx={{flex:1.5,backgroundImage: `url(${Inbox})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',
-        height:'100vh',justifyContent:'center',alignItems:'center'}}><div style={{ color: '#FFFFFF',
-            fontFamily: 'Ageo',
-            width:329,
-            fontSize: 60,
-            fontWeight: 'bold',
-            letterSpacing: 0}}></div></Grid>}
+ 
    </>
     )
 }

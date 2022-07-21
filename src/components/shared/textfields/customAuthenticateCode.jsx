@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
 
 
-export function AuthenticateCodeField({onChange}){
+export function AuthenticateCodeField({onChange,warn=false}){
     const [code,setCode] = useState([]);
- const style={width:40,height:40,textAlign:'center',border:'none',boxShadow:'0 5px 18px 0 rgba(52,51,101,0.16)',borderRadius:4,backgroundColor:'#FFFFFF'};
+ const style={width:51,height:40,textAlign:'center',border:warn?'solid':'none',borderColor:'#FF6969',borderWidth:2,boxShadow:'0 5px 18px 0 rgba(52,51,101,0.16)',borderRadius:4,backgroundColor:'#FFFFFF'};
 
     function  handleChange( e) {
         const { maxLength, value, name } = e.target;
@@ -12,9 +12,10 @@ export function AuthenticateCodeField({onChange}){
         // Check if they hit the max character length
         if (value.length >= maxLength) {
           // Check if it's not the last input field
+          array.push(value);
           if (parseInt(fieldIndex, 10) < 6) {
             // Get the next input field
-            array.push(value);
+            
             const nextSibling = document.querySelector(
               `input[name=ssn-${parseInt(fieldIndex, 10) + 1}]`
             );
@@ -25,10 +26,11 @@ export function AuthenticateCodeField({onChange}){
             }
           }
         }else if(value.length ===0){
+            array.pop(value);
           const nextSibling = document.querySelector(
             `input[name=ssn-${parseInt(fieldIndex, 10) - 1}]`
           );
-          array.pop(value);
+          
            // If found, focus the next field
            if (nextSibling !== null) {
             nextSibling.focus();
@@ -37,9 +39,10 @@ export function AuthenticateCodeField({onChange}){
     setCode([...array]);
     onChange(array.join(""))
       }
-console.log('code ',code);
 
-return(<div style={{display:'flex',justifyContent:'space-evenly'}}>
+
+return(<div style={{display:'flex',flexDirection:'column'}}>
+<div style={{display:'flex',justifyContent:'space-evenly'}}>
 
     <input style={style}
         type="text"
@@ -102,6 +105,22 @@ return(<div style={{display:'flex',justifyContent:'space-evenly'}}>
         onChange={handleChange} />
 
 
-</div>)
+</div>
+{warn && <div style={{display:'flex',flexDirection:'column'}}><div style={{alignSelf:'center',color: "#FF6969",
+  fontFamily: "Baloo Tammudu 2",
+  fontSize: 11,
+  letterSpacing: 0,
+  lineHeight: 2,marginTop:15}}>The number entered does not match the most recent number sent to your email. 
+</div>
+<div style={{alignSelf:'center',color: "#FF6969",
+  fontFamily: "Baloo Tammudu 2",
+  fontSize: 11,
+  letterSpacing: 0,
+  lineHeight: 2,}}>
+Please try again.
+</div>
+</div>}
+</div>
+)
 
 }

@@ -68,8 +68,8 @@ export default function SimpleModal(props) {
 <div>
       <BootstrapDialog
         onClose={handleClose}
-   
-       maxWidth={['maxWidth']>('sm')}
+       fullWidth
+       maxWidth={'sm'}
        
         aria-labelledby="customized-dialog-title"
         open={props.open}
@@ -96,9 +96,9 @@ export default function SimpleModal(props) {
 
 
         </BootstrapDialogTitle>
-        <div style={{display:'flex',alignSelf:'center',marginTop:20,marginBottom:10}}> 
+        <div style={{display:'flex',alignSelf:'center',marginTop:20,marginBottom:70}}> 
 
- <CustomButton sx={{backgroundColor:'#0063F0',}} label={props.label} onClick={()=>navigate(props.navigate)}/>
+ <CustomButton size='medium' sx={{backgroundColor:'#0063F0',borderRadius:2}} label={props.label} onClick={()=>navigate(props.navigate)}/>
 </div>
        
       </BootstrapDialog>
