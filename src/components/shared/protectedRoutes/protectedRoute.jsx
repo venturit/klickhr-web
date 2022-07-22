@@ -2,6 +2,7 @@ import * as React from "react";
 // import { getToken, setAuthData } from "../../../util/auth";
 import { Navigate } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import Menu from "../headers/loginMenu";
 
 
 export function ProtectedRoute({children}) {
@@ -15,7 +16,9 @@ export function ProtectedRoute({children}) {
     });
 
   if(user){
-    return  children
+    return  (
+    <Menu children={children}/>
+    )
 
      
 }else{

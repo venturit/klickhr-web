@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './fonts/Iconly-Bold.ttf';
+import './fonts/Ageo.otf';
+import './fonts/BalooTammudu2-Regular.ttf';
 import { Provider } from 'react-redux';
 import {store} from './redux/store';
 

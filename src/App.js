@@ -9,10 +9,15 @@ import Support from "./components/support/support";
 import AuthenticateAccount from "./components/signin/authenticate";
 
 function App() {
-
+  const state = useSelector((store)=>{
+    if(store.auth_data){
+return store.auth_data;
+    }
+  })
+console.log(state);
   return (
  <Router>
-  <AppContainer/>
+ {state.user_id===null && <MenuWithout/>}
    <Routes>
      <Route path="/" element={<SignIn/>}/>
      <Route path="/forgot_password" element={<ForgotPassword/>}/>
@@ -20,6 +25,10 @@ function App() {
      <Route path="/support" element={<Support/>}/>
      <Route path="/components" element={<Components/>}/>
      <Route path="/components/protected" element={<ProtectedRoute><Components/></ProtectedRoute>}/>
+     <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
+     <Route path="/users" element={<ProtectedRoute><Users/></ProtectedRoute>}/>
+     <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}/>
+     <Route path="/global_admin" element={<ProtectedRoute><GlobalAdmin/></ProtectedRoute>}/>
    </Routes>
  </Router>
   
