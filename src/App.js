@@ -7,6 +7,12 @@ import {ProtectedRoute} from "./components/shared/protectedRoutes/protectedRoute
 import ForgotPassword from "./components/forgotPassword/forgotPassword";
 import Support from "./components/support/support";
 import AuthenticateAccount from "./components/signin/authenticate";
+import Dashboard from "./components/dashboard/dashboard";
+import Users from "./components/users/users";
+import GlobalAdmin from "./components/globalAdmin/globalAdmin";
+import Admin from "./components/admin/admin";
+import MenuWithout from "./components/shared/headers/generalMenu";
+import {useSelector} from 'react-redux';
 
 function App() {
   const state = useSelector((store)=>{
@@ -14,7 +20,7 @@ function App() {
 return store.auth_data;
     }
   })
-console.log(state);
+
   return (
  <Router>
  {state.user_id===null && <MenuWithout/>}
