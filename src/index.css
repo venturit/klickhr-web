@@ -1,6 +1,19 @@
 
 
 @font-face {
+  font-family: "Baloo-Tammudu-2";
+  src: local("BalooTammudu2-Regular"),
+    url("./fonts/BalooTammudu2-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Ageo";
+  src: local("Ageo"),
+    url("./fonts/Ageo.otf") format("opentype");
+  font-weight: normal;
+}
+@font-face {
   font-family: "Feather-Icons";
   src: local("Feather-Icons"),
     url("./fonts/Feather-Icons.ttf") format("truetype");

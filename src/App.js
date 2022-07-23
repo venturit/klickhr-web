@@ -7,11 +7,23 @@ import {ProtectedRoute} from "./components/shared/protectedRoutes/protectedRoute
 import ForgotPassword from "./components/forgotPassword/forgotPassword";
 import Support from "./components/support/support";
 import AuthenticateAccount from "./components/signin/authenticate";
+import Dashboard from "./components/dashboard/dashboard";
+import Users from "./components/users/users";
+import GlobalAdmin from "./components/globalAdmin/globalAdmin";
+import Admin from "./components/admin/admin";
+import MenuWithout from "./components/shared/headers/generalMenu";
+import {useSelector} from 'react-redux';
 
 function App() {
+  const state = useSelector((store)=>{
+    if(store.auth_data){
+return store.auth_data;
+    }
+  })
 
   return (
  <Router>
+ {state.user_id===null && <MenuWithout/>}
    <Routes>
      <Route path="/" element={<SignIn/>}/>
      <Route path="/forgot_password" element={<ForgotPassword/>}/>
@@ -19,6 +31,10 @@ function App() {
      <Route path="/support" element={<Support/>}/>
      <Route path="/components" element={<Components/>}/>
      <Route path="/components/protected" element={<ProtectedRoute><Components/></ProtectedRoute>}/>
+     <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>
+     <Route path="/users" element={<ProtectedRoute><Users/></ProtectedRoute>}/>
+     <Route path="/admin" element={<ProtectedRoute><Admin/></ProtectedRoute>}/>
+     <Route path="/global_admin" element={<ProtectedRoute><GlobalAdmin/></ProtectedRoute>}/>
    </Routes>
  </Router>
   
