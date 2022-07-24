@@ -2,7 +2,6 @@ import * as React from 'react';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
-import Header from './mainHeader';
 import Head from './appBarWithoutSignIn';
 
 
@@ -34,7 +33,7 @@ export default function MenuWithout({children}) {
      <Head/>
    
       
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" sx={{ flexGrow: 1,}}>
         <DrawerHeader />
        {children}
       </Box>
