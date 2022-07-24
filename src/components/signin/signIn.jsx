@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {useSelector,useDispatch} from 'react-redux';
-
+import { setUserDetail } from '../../redux/auth/authReducer';
 import { Box } from '@mui/system';
 import { Grid } from '@mui/material';
 import { Email } from '../shared/textfields/email';
@@ -17,7 +17,7 @@ import { validateEmail,validatePassword } from '../../utils/validators';
 
 export default function SignIn(){
 
-    // const dispatch =  useDispatch();
+   
     // const user_details= useSelector((store)=>{
     //     if(store.auth_data){
     //         return store.auth_data
@@ -83,7 +83,8 @@ function LogInCard({mobileView}){
     const [email,setEmail] = useState({value:"",is_valid:false});
     const [password,setPassword] = useState({value:"",is_valid:false});
     const navigate = useNavigate();
-
+    const dispatch =  useDispatch();
+    
 const onfieldChange=(event)=>{
     const value = event.target.value;
 switch(event.target.name){
@@ -99,6 +100,9 @@ case 'password':
     ob.value=value;
     setPassword({...ob});
     break;
+case 'submit':
+    dispatch(setUserDetail({user_id:1,is_authenticated:true,user_role:'client admin'}));
+    navigate('/dashboard');
 
 default:
     const mail=email;
@@ -128,7 +132,7 @@ default:
   marginBottom:62}}>Remember me</div>
   <CustomSwitch/>
   </div>
-   <div style={{ marginBottom:17}}><CustomButton onClick={onfieldChange}/></div>
+   <div style={{ marginBottom:17}}><CustomButton name='submit' onClick={onfieldChange}/></div>
    <div style={{display:'flex', color: '#2216AC',
   fontFamily: "Baloo Tammudu 2",
   fontSize: 13,

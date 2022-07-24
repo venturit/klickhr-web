@@ -14,8 +14,8 @@ import Settings from '../../../resources/sideBar/admin/Administration.svg';
 import Dashboard from '../../../resources/sideBar/dashboard/dashboard.svg';
 import Users from '../../../resources/sideBar/users/users.svg';
 import Global from '../../../resources/sideBar/global/global.svg';
-import Support from '../../../resources/sideBar/support.png';
-import { textAlign } from '@mui/system';
+import { setUserDetail } from '../../../redux/auth/authReducer';
+import { useDispatch } from 'react-redux';
 
 const drawerWidth = 240;
 
@@ -80,7 +80,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 function SideMenu({open}){
     const theme = useTheme();
   const navigate = useNavigate();
-
+ const dispatch = useDispatch();
 
 
   const handleDrawerClose = () => {
@@ -137,7 +137,7 @@ function SideMenu({open}){
         
           
           }}
-          onClick={()=>navigate(text.path)}
+          onClick={()=>dispatch(setUserDetail({user_id:null,is_authenticated:null,user_role:null}))}
         >
           <ListItemIcon
             sx={{
