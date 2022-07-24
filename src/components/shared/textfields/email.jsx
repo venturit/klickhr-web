@@ -27,6 +27,7 @@ export function Email({warn=true,onChange,value}) {
         value={value}
         onChange={onChange}
         sx={{
+          backgroundColor:'#FFFFFF',
           paddingLeft: 1,
           paddingRight: 1,
           color: "#8280B1",

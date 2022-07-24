@@ -9,7 +9,7 @@ import { Password } from '../shared/textfields/password';
 import { CustomSwitch } from '../shared/buttons/switch';
 import { CustomButton } from '../shared/buttons/button';
 import GroupImage from '../../resources/images/signIn/Group.jpg';
-import MobileImage from '../../resources/images/signIn/signInMobile.jpg';
+import MobileImage from '../../resources/images/signIn/mobileSignin.svg';
 import Welcome from '../../resources/images/signIn/welcome.jpg';
 import { validateEmail,validatePassword } from '../../utils/validators';
 
@@ -48,7 +48,7 @@ setMobileView(true);
     
 
     return(
-        <Box sx={{display:'flex'}}>
+        <Box sx={{display:'flex',backgroundColor:'#F5F6FC'}}>
              {!mobileView && <Grid container  sx={{flex:1.5,backgroundImage: `url(${Welcome})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',
     height:'100vh',justifyContent:'center',alignItems:'center'}}><div style={{ color: '#FFFFFF',
         fontFamily: 'Ageo',
@@ -60,11 +60,13 @@ setMobileView(true);
     {mobileView && <div style={{position:'absolute',top:0,left:0,backgroundImage:`url(${MobileImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:164,width:'100%',color: '#FFFFFF',
         fontFamily: 'Ageo',
         fontSize: 30,
-        fontWeight: 'bold',display:'flex',justifyContent:'center',alignItems:'center'}}>Welcome to KlickHR</div>}
+        marginTop:48,
+        fontWeight: 800,display:'flex',justifyContent:'center',alignItems:'center'}}><div style={{position:'absolute',top:'50%'}}>Welcome to KlickHR</div></div>}
    
      <Grid container   sx={{flex:1,backgroundCflexDirection:'column',
     height:'100vh',padding:4,position:'relative',width:'inherit'}}>
         {!mobileView &&<div style={{position:'absolute',top:10,right:10,backgroundImage:`url(${GroupImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:50,width:55.6,}}></div>}
+        {mobileView &&<div style={{position:'absolute',bottom:0,left:'50%',backgroundImage:`url(${GroupImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:50,width:55.6,}}></div>}
        
    
 
@@ -133,7 +135,7 @@ default:
   fontWeight:600,
   letterSpacing: 0,
   marginBottom:17,justifyContent:'center'}} onClick={()=>navigate('/forgot_password')}>Forgot password?</div>
-   <div style={{display:'flex',justifyContent:'center',color: '#444271',
+   <div style={{color: '#444271',
   fontFamily: "Baloo Tammudu 2",
   fontSize: 13,
   letterSpacing: 0,lineHeight: 1,}}>Problems signing in? <span style={{color:'#0063F0'}} onClick={()=>navigate('/support')}> Click here</span> for assistance</div>

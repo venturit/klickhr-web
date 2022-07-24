@@ -7,7 +7,7 @@ import { validateEmail,validatePassword } from '../../utils/validators';
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import RecoverPassword from '../../resources/images/forgotPassword/RecoverPassword.jpg'; 
-import MobileImage from '../../resources/images/signIn/signInMobile.jpg';
+import MobileImage from '../../resources/images/forgotPassword/passwordRecoveryMobile.svg';
 import PasswordSetupCode from './code';
 import PasswordStrength from './setUpNewPass';
 
@@ -38,7 +38,7 @@ export default function ForgotPassword(){
     },[]);
 
     return(
-        <Box sx={{display:'flex',width:"100%",height:"100vh"}}>
+        <Box sx={{display:'flex',width:"100%",height:"100vh",backgroundColor:'#F5F6FC'}}>
            
     {step===0 && <PasswordRecoveryMail setStep={setStep}/>}
    {step===1 &&<PasswordSetupCode setStep={setStep} mobileView={mobileView}/> }
@@ -107,8 +107,11 @@ default:
 
 
     return(<>
-
-       {!mobileView && <Grid container  sx={{flex:1.5,backgroundImage: `url(${RecoverPassword})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',
+   {mobileView && <div style={{position:'absolute',top:0,left:0,backgroundImage:`url(${MobileImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:164,width:'100%',color: '#FFFFFF',
+        fontFamily: 'Ageo',
+        fontSize: 30,
+        fontWeight: 'bold',}}></div>}
+       {!mobileView && <Grid container  sx={{flex:0.7,backgroundImage: `url(${RecoverPassword})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',
         height:'100vh',justifyContent:'center',alignItems:'center'}}><div style={{ color: '#FFFFFF',
             fontFamily: 'Ageo',
             width:329,
@@ -117,10 +120,7 @@ default:
             letterSpacing: 0}}></div></Grid>}
              <Grid  sx={{flex:1,flexDirection:'column',
     height:'100vh',padding:4,position:'relative',}}> 
-    {mobileView && <div style={{position:'absolute',top:0,left:0,backgroundImage:`url(${MobileImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:164,width:'100%',color: '#FFFFFF',
-        fontFamily: 'Ageo',
-        fontSize: 30,
-        fontWeight: 'bold',}}></div>}
+ 
 <div style={{display:'flex',flexDirection:'column',position:'absolute',top:'50%',left:'50%',alignSelf:'center',transform: 'translate(-50%, -50%)'}}>
     
     <div style={{display:'flex', color: '#343365',

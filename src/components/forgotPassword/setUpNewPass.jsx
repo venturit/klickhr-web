@@ -5,8 +5,8 @@ import { Password } from '../shared/textfields/password';
 import StrengthIndicator from '../shared/strengthIndicator/strength';
 import { validatePassword } from '../../utils/validators';
 import SimpleModal from '../shared/modals/simpleModal';
-import MobileImage from '../../resources/images/signIn/signInMobile.jpg';
-
+import MobileImage from '../../resources/images/forgotPassword/passwordRecoveryMobile.svg';
+import GroupImage from '../../resources/images/signIn/Group.jpg';
 const primaryColor ="rgba(130,128,177,0.2)";
 const secondaryColor ="#0063F0";
 
@@ -71,7 +71,7 @@ export default function PasswordStrength({mobileView}){
 Please make sure that your new password contains at least 8 digits
 and contains at least one special character @ # & ! \ - * $ % .
   </div>
-  <div style={{marginBottom:13}}><Password name='current_password' label='Current password' value={curPass} onChange={onfieldChange}/></div>
+  {/* <div style={{marginBottom:13}}><Password name='current_password' label='Current password' value={curPass} onChange={onfieldChange}/></div> */}
    <div style={{marginBottom:13}}><Password name='new_password' label='Create a new password' value={newPass} onChange={onfieldChange}/></div>
    <div style={{marginBottom:18}}><Password name='confirm_password' label='Confirm your new password' value={confirmPass} onChange={onfieldChange}/></div>
    <div><StrengthIndicator strength={validator.strength}/></div>
@@ -88,9 +88,10 @@ and contains at least one special character @ # & ! \ - * $ % .
   fontFamily: "Baloo Tammudu 2",
   fontSize: 13,
   letterSpacing: 0,lineHeight: 1,}}>Didn’t receive the email? <span style={{color:'#0063F0'}} onClick={()=>navigate('/support')}> Click here</span> to resend</div>
- 
+        
   <SimpleModal open={open} navigate="/" text="Password Updated!" label="GO TO LOGIN PAGE" handleChange={()=>console.log("hello")}/>
    </div>
+   {mobileView &&<div style={{position:'absolute',bottom:0,left:'50%',backgroundImage:`url(${GroupImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:50,width:55.6,}}></div>}
  </>
     )
 }
