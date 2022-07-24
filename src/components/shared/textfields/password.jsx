@@ -38,7 +38,7 @@ export function Password({label='Password',name="password",warn=false,value,onCh
             
           },
         
-          
+          backgroundColor:'#FFFFFF',
           boxShadow: "0 5px 18px 0 rgba(52,51,101,0.16)",
           color: "#8280B1",
           fontFamily: "Baloo Tammudu 2",

@@ -7,7 +7,7 @@ import { validateEmail,validatePassword } from '../../utils/validators';
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import RecoverPassword from '../../resources/images/forgotPassword/RecoverPassword.jpg'; 
-import MobileImage from '../../resources/images/signIn/signInMobile.jpg';
+import MobileImage from '../../resources/images/forgotPassword/passwordRecoveryMobile.svg';
 import PasswordSetupCode from './code';
 import PasswordStrength from './setUpNewPass';
 
@@ -38,7 +38,7 @@ export default function ForgotPassword(){
     },[]);
 
     return(
-        <Box sx={{display:'flex',width:"100%",height:"100vh"}}>
+        <Box sx={{display:'flex',width:"100%",height:"100vh",backgroundColor:'#F5F6FC'}}>
            
     {step===0 && <PasswordRecoveryMail setStep={setStep}/>}
    {step===1 &&<PasswordSetupCode setStep={setStep} mobileView={mobileView}/> }
@@ -108,7 +108,7 @@ default:
 
     return(<>
 
-       {!mobileView && <Grid container  sx={{flex:1.5,backgroundImage: `url(${RecoverPassword})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',
+       {!mobileView && <Grid container  sx={{flex:0.7,backgroundImage: `url(${RecoverPassword})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',
         height:'100vh',justifyContent:'center',alignItems:'center'}}><div style={{ color: '#FFFFFF',
             fontFamily: 'Ageo',
             width:329,

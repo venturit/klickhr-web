@@ -6,7 +6,7 @@ import { validatePassword } from '../../utils/validators';
 import { Grid } from '@mui/material';
 import { CustomButton } from '../shared/buttons/button';
 import Inbox from '../../resources/images/forgotPassword/inboxCheck.jpg';
-import MobileImage from '../../resources/images/signIn/signInMobile.jpg';
+import MobileImage from '../../resources/images/forgotPassword/passwordRecoveryMobile.svg';
 import { AuthenticateCodeField } from '../shared/textfields/customAuthenticateCode';
 
 
@@ -60,7 +60,7 @@ const handleCode = (a)=>{
     return(<>
 
       
-             <Grid  sx={{flex:1,flexDirection:'column',
+             <Grid  sx={{flex:1.5,flexDirection:'column',
     height:'100vh',padding:4,position:'relative'}}> 
     {mobileView && <div style={{position:'absolute',top:0,left:0,backgroundImage:`url(${MobileImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:164,width:'100%',color: '#FFFFFF',
         fontFamily: 'Ageo',
@@ -82,6 +82,7 @@ const handleCode = (a)=>{
     <div style={{color: "#343365",
   fontFamily: "Baloo Tammudu 2",
   fontSize: 13,
+  fontWeight:500,
   letterSpacing: 0,
   lineHeight: 2,alignSelf:'center',marginBottom:6}}>Please enter the code below</div>
 <AuthenticateCodeField onChange={handleCode}/>
@@ -107,7 +108,7 @@ const handleCode = (a)=>{
   
    </div>
    </Grid>
-   {!mobileView &&<Grid container  sx={{flex:1.5,backgroundImage: `url(${Inbox})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',
+   {!mobileView &&<Grid container  sx={{flex:1.2,backgroundImage: `url(${Inbox})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',
         height:'100vh',justifyContent:'center',alignItems:'center'}}><div style={{ color: '#FFFFFF',
             fontFamily: 'Ageo',
             width:329,
