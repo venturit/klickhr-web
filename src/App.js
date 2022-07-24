@@ -23,12 +23,12 @@ return store.auth_data;
 
   return (
  <Router>
- {state.user_id===null && <MenuWithout/>}
+ {/* {state.user_id===null && <MenuWithout/>} */}
    <Routes>
-     <Route path="/" element={<SignIn/>}/>
-     <Route path="/forgot_password" element={<ForgotPassword/>}/>
-     <Route path="/authenticate" element={<AuthenticateAccount/>}/>
-     <Route path="/support" element={<Support/>}/>
+     <Route path="/" element={<MenuWithout><SignIn/></MenuWithout>}/>
+     <Route path="/forgot_password" element={<MenuWithout><ForgotPassword/></MenuWithout>}/>
+     <Route path="/authenticate" element={<MenuWithout><AuthenticateAccount/></MenuWithout>}/>
+     <Route path="/support" element={<MenuWithout><Support/></MenuWithout>}/>
      <Route path="/components" element={<Components/>}/>
      <Route path="/components/protected" element={<ProtectedRoute><Components/></ProtectedRoute>}/>
      <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>}/>

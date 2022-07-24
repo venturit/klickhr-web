@@ -36,7 +36,7 @@ function Head() {
   width: 117.32,}}/>
   <CustomButton
               
-              onClick={()=>handleCloseNavMenu()}
+              onClick={()=>handleCloseNavMenu('/')}
               style={{color: "white", display: "block", fontFamily: "Baloo Tammudu 2",
               fontWeight:  800,
               color:"#FFFFFF" ,
