@@ -107,7 +107,10 @@ default:
 
 
     return(<>
-
+   {mobileView && <div style={{position:'absolute',top:0,left:0,backgroundImage:`url(${MobileImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:164,width:'100%',color: '#FFFFFF',
+        fontFamily: 'Ageo',
+        fontSize: 30,
+        fontWeight: 'bold',}}></div>}
        {!mobileView && <Grid container  sx={{flex:0.7,backgroundImage: `url(${RecoverPassword})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',
         height:'100vh',justifyContent:'center',alignItems:'center'}}><div style={{ color: '#FFFFFF',
             fontFamily: 'Ageo',
@@ -117,10 +120,7 @@ default:
             letterSpacing: 0}}></div></Grid>}
              <Grid  sx={{flex:1,flexDirection:'column',
     height:'100vh',padding:4,position:'relative',}}> 
-    {mobileView && <div style={{position:'absolute',top:0,left:0,backgroundImage:`url(${MobileImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:164,width:'100%',color: '#FFFFFF',
-        fontFamily: 'Ageo',
-        fontSize: 30,
-        fontWeight: 'bold',}}></div>}
+ 
 <div style={{display:'flex',flexDirection:'column',position:'absolute',top:'50%',left:'50%',alignSelf:'center',transform: 'translate(-50%, -50%)'}}>
     
     <div style={{display:'flex', color: '#343365',

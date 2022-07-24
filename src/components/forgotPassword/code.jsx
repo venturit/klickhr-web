@@ -58,14 +58,14 @@ const handleCode = (a)=>{
 };
 
     return(<>
-
-      
-             <Grid  sx={{flex:1.5,flexDirection:'column',
-    height:'100vh',padding:4,position:'relative'}}> 
-    {mobileView && <div style={{position:'absolute',top:0,left:0,backgroundImage:`url(${MobileImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:164,width:'100%',color: '#FFFFFF',
+  {mobileView && <div style={{position:'absolute',top:0,left:0,backgroundImage:`url(${MobileImage})`,backgroundSize:'cover',backgroundRepeat:'no-repeat',height:164,width:'100%',color: '#FFFFFF',
         fontFamily: 'Ageo',
         fontSize: 30,
         fontWeight: 'bold',}}></div>}
+      
+             <Grid  sx={{flex:1.5,flexDirection:'column',
+    height:'100vh',padding:4,position:'relative'}}> 
+  
 <div style={{display:'flex',flexDirection:'column',position:'absolute',top:'50%',left:'50%',alignSelf:'center',transform: 'translate(-50%, -50%)'}}>
     <div style={{display:'flex', color: '#343365',
   fontFamily: 'Ageo',
