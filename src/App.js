@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignIn from "./components/signin/signIn";
 import Components from "./component";
 import { ProtectedRoute } from "./components/shared/protectedRoutes/protectedRoute";
-import Dashboard from "./components/dashboard/Dashboard";
+import Dashboard from "./components/dashboard/dashboard";
 import LastSession from "./components/lastSession/LastSession";
 import ForgotPassword from "./components/forgotPassword/forgotPassword";
 import Support from "./components/support/support";
