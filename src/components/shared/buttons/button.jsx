@@ -6,21 +6,24 @@ export function CustomButton(props) {
   return (
     <div>
       <Button
+      
         variant="contained"
         size="small"
-        name="submit"
+        name='submit'
         sx={{
           textTransform: "none",
-          // margin: 10,
-          width: "max-content",
-          backgroundColor: "#0063F0",
-          borderRadius: "10px",
-          boxShadow: "none",
-          padding: "5px 30px",
+          color:props.textColor?props.textColor:'#FFFFFF',
+          margin: 1,
+          width: 348,
+          backgroundColor:props.col?props.col:"#0063F0",
+          borderRadius:2,
+          fontFamily: "Baloo Tammudu 2",
+          fontSize: 13,
+         
         }}
         {...props}
       >
-        {props.name}
+       {props.label? props.label:'Sign in'}
       </Button>
     </div>
   );
