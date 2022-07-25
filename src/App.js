@@ -14,8 +14,8 @@ import GlobalAdmin from "./components/globalAdmin/globalAdmin";
 import Admin from "./components/admin/admin";
 import MenuWithout from "./components/shared/headers/generalMenu";
 import {useSelector} from 'react-redux';
-import Dashboard from "./components/dashboard/Dashboard";
-import LastSession from "./components/lastSession/LastSession";
+// import Dashboard from "./components/dashboard/Dashboard";
+// import LastSession from "./components/lastSession/LastSession";
 
 function App() {
   const state = useSelector((store)=>{
