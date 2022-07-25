@@ -1,6 +1,6 @@
 import React from "react";
-import { Chart as ChartJS, Tooltip, Title, ArcElement, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
+import { Chart as ChartJS, Tooltip, Title, ArcElement, Legend } from "chart.js";
 
 ChartJS.register(Tooltip, Title, ArcElement, Legend);
 
@@ -48,11 +48,7 @@ export const DoughnutChart = ({ labels, values }) => {
     },
   };
 
-  return (
-    <div style={{ width: "40%" }}>
-      <Doughnut data={data} options={options} />
-    </div>
-  );
+  return <Doughnut data={data} options={options} />;
 };
 
 export default DoughnutChart;

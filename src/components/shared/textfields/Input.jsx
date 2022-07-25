@@ -3,11 +3,7 @@ import React from "react";
 //MUI Components
 import { FormControl, InputBase, InputLabel, styled } from "@mui/material";
 
-const BootstrapInput = styled(InputBase)(({ theme }) => ({
-  "label + &": {
-    marginTop: theme.spacing(3),
-  },
-
+const BootstrapInput = styled(InputBase)({
   "& .MuiInputBase-input": {
     backgroundColor: "#FFFFFF",
     borderRadius: 5,
@@ -23,7 +19,7 @@ const BootstrapInput = styled(InputBase)(({ theme }) => ({
       border: "2px solid #0063F0",
     },
   },
-}));
+});
 
 const InputLabelStyles = styled(InputLabel)({
   color: "#343365",
@@ -37,6 +33,7 @@ const Input = ({ label }) => {
       <InputLabelStyles shrink htmlFor="bootstrap-input">
         {label}
       </InputLabelStyles>
+
       <BootstrapInput id="bootstrap-input" />
     </FormControl>
   );
